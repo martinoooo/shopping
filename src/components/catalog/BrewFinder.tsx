@@ -52,7 +52,7 @@ export function BrewFinder() {
         </div>
 
         <div className="mt-8 grid gap-10 lg:mt-12 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-5">
+          <div className="min-w-0 lg:col-span-5">
             <div
               className="flex flex-wrap gap-2"
               role="group"
@@ -100,7 +100,7 @@ export function BrewFinder() {
             </div>
           </div>
 
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <h3 className="sr-only">Recommended for {method}</h3>
             <ul>
               {matches.map((product, index) => (

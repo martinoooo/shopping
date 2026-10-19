@@ -33,6 +33,10 @@ export default function Shop() {
   }, [filters.query])
 
   const products = filterAndSortProducts({ ...filters, query: query.trim() })
+  // Counts are scoped to the active category so "2 of 9" never reads as "2 of 19".
+  const categoryTotal = filters.category
+    ? PRODUCTS.filter((product) => product.category === filters.category).length
+    : PRODUCTS.length
 
   const applyFilters = (patch: Partial<ShopFilters>, replace = false) => {
     const next: ShopFilters = { ...filters, query: query.trim(), ...patch }
@@ -88,7 +92,7 @@ export default function Shop() {
               </p>
             </div>
             <p className="hidden text-[11px] uppercase tracking-[0.14em] text-muted md:block md:text-right">
-              {PRODUCTS.length} products
+              {categoryTotal} products
               <br />
               Roasted to order
             </p>
@@ -105,7 +109,7 @@ export default function Shop() {
           }}
           onClearQuery={onClearQuery}
           resultCount={products.length}
-          totalCount={PRODUCTS.length}
+          totalCount={categoryTotal}
           sort={filters.sort}
           onSortChange={(sort: SortId) => applyFilters({ sort })}
           activeFilterCount={countActiveFilters(filters)}

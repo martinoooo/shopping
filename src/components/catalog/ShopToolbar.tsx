@@ -65,7 +65,7 @@ export function ShopToolbar({
           ) : null}
         </form>
 
-        <div className="flex items-center justify-between gap-3 sm:justify-end">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 sm:justify-end">
           <p className="whitespace-nowrap text-[11.5px] text-muted" aria-live="polite">
             <span className="sm:hidden">
               {resultCount} of {totalCount}
@@ -90,7 +90,7 @@ export function ShopToolbar({
             ) : null}
           </button>
 
-          <div className="relative">
+          <div className="relative min-w-0">
             <label htmlFor="shop-sort" className="sr-only">
               Sort products
             </label>
@@ -98,7 +98,7 @@ export function ShopToolbar({
               id="shop-sort"
               value={sort}
               onChange={(event) => onSortChange(event.target.value as SortId)}
-              className="h-10 appearance-none rounded-full border border-ink/15 bg-surface pl-4 pr-9 text-[12.5px] text-ink transition-colors hover:border-ink/30 focus:border-ink/50 focus:outline-none"
+              className="h-10 max-w-full appearance-none rounded-full border border-ink/15 bg-surface pl-4 pr-9 text-[12.5px] text-ink transition-colors hover:border-ink/30 focus:border-ink/50 focus:outline-none"
             >
               {SORT_OPTIONS.map((option) => (
                 <option key={option.id} value={option.id}>

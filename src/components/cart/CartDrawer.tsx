@@ -81,7 +81,7 @@ export function CartDrawer() {
     >
       <header className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-ink/10 bg-paper px-5 py-5 sm:px-6">
         <div>
-          <p className="eyebrow">Your bag</p>
+          <p className="eyebrow">Shopping bag</p>
           <h2 className="mt-1 font-display text-[22px] leading-tight text-ink">
             Your bag ({totals.itemCount})
           </h2>

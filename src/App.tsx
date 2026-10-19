@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer'
 import { CartDrawer } from '@/components/cart/CartDrawer'
 import { SearchDialog } from '@/components/catalog/SearchDialog'
 import { Toaster } from '@/components/ui'
+import { useUIStore } from '@/store/ui'
 import Home from '@/pages/Home'
 import Shop from '@/pages/Shop'
 import Product from '@/pages/Product'
@@ -35,6 +36,11 @@ function ScrollManager() {
 
 export default function App() {
   const location = useLocation()
+  const dismissAllToasts = useUIStore((state) => state.dismissAllToasts)
+
+  useEffect(() => {
+    dismissAllToasts()
+  }, [location.pathname, location.search, dismissAllToasts])
 
   return (
     <div className="grain flex min-h-screen flex-col bg-paper">

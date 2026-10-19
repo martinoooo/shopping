@@ -14,6 +14,7 @@ interface UIState {
   searchOpen: boolean
   pushToast: (toast: Omit<Toast, 'id'>) => string
   dismissToast: (id: string) => void
+  dismissAllToasts: () => void
   openSearch: () => void
   closeSearch: () => void
 }
@@ -30,6 +31,7 @@ export const useUIStore = create<UIState>((set) => ({
     return id
   },
   dismissToast: (id) => set((state) => ({ toasts: state.toasts.filter((t) => t.id !== id) })),
+  dismissAllToasts: () => set({ toasts: [] }),
   openSearch: () => set({ searchOpen: true }),
   closeSearch: () => set({ searchOpen: false }),
 }))
